@@ -12,7 +12,7 @@ const config = {
     baseUrl: 'http://localhost',
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
-    connectionRetryTimeout: 3,
+    connectionRetryCount: 3,
     services: ['selenium-standalone'],
     framework: 'mocha',
     reporters: ['spec'],
