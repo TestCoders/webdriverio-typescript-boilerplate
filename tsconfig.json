@@ -5,8 +5,8 @@
         "*": [
           "./*"
         ],
-        "pages": [
-            "./pages/**/*"
+        "pages/*": [
+            "./pages/*"
         ]
       },
       /* Basic Options */
