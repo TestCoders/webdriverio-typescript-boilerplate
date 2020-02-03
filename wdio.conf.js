@@ -1,12 +1,12 @@
 const getCapability = require('./capabilities')
-const testLocation = './test/specs/**/*.js'
+const testLocation = './test/**/*.ts'
 
 const config = {
     specs: [testLocation],
     exclude: [],
     maxInstances: 5,
     capabilities: [getCapability()],
-    logLevel: 'info',
+    logLevel: 'debug',
     outputDir: './wdio-output/',
     bail: 0,
     baseUrl: 'http://localhost',
@@ -18,13 +18,17 @@ const config = {
     reporters: ['spec'],
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
+        compilers: [
+            'tsconfig-paths/register'
+        ]
     },
-    before() {
+    before(capabilities, specs) {
+        require('ts-node').register({ files: true })
         browser.addCommand('globalTimeout', function () {
             return process.env.ENVIRONMENT === 'prodction' ? 3000 : 5000
         })
     }
 }
 
-module.exports = config
+exports.config = config
