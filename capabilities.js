@@ -4,46 +4,50 @@ const browsers = {
 }
 
 const chromeCapability = {
-  'browserName': browsers.chrome,
-  'maxInstances': 5
+    maxInstances: 5,
+    browserName: browsers.chrome,
 }
 
 const firefoxCapability = {
-  'browserName': browsers.firefox,
-  'maxInstances': 5
+    maxInstances: 5,
+    browserName: browsers.firefox,
 }
 
 const capabilities = {
-  chromeCapability,
-  firefoxCapability
+    chromeCapability,
+    firefoxCapability
 }
 
 function getCapability() {
-  const headless = process.env.HEADLESS || null
-  const browser = process.env.BROWSER || browsers.chrome
-  const instances = process.env.INSTANCES || 1
+    const headless = process.env.HEADLESS || null
+    const browser = process.env.BROWSER || browsers.chrome
+    const instances = process.env.INSTANCES || 1
 
-  let capability = capabilities.chromeCapability
+    let capability = capabilities.chromeCapability
 
-  if (browser === browsers.firefox) {
-      capability = capabilities.firefoxCapability
-  }
+    if (browser === browsers.firefox) {
+        capability = capabilities.firefoxCapability
+    }
 
-  capability.maxInstances = instances
+    if (headless && browser) {
+        if (browser === browsers.chrome) {
+            capability['goog:chromeOptions'] = {
+                args: [
+                    '--headless',
+                    '--disable-gpu'
+                ]
+            }
+        } else if (browser === browsers.firefox) {
+            capability['moz:firefoxOptions'] = {
+                args: [
+                    '-headless',
+                ]
+            }
+        }
+    }
 
-  if (headless) {
-      if (browser && browser === browsers.firefox) {
-          capability['moz:firefoxOptions'] = {
-              args: ['-headless', '--window-size=1280,800']
-          }
-      } else {
-          capability['goog:chromeOptions'] = {
-              args: ['--headless', '--disable-gpu', '--window-size=1280,800']
-          }
-      }
-  }
-
-  return capability
+    capability.maxInstances = instances
+    return capability
 }
 
 module.exports = getCapability
