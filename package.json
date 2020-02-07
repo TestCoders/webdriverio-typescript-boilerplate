@@ -1,59 +1,61 @@
 {
-  "name": "webdriverio-typescript-boilerplate",
-  "version": "0.1.0",
-  "description": "WebdriverIO boilerplate with Typescript",
-  "scripts": {
-    "test": "node_modules/.bin/wdio wdio.conf.js",
-    "test:headless": "HEADLESS=1 npm run test",
-    "lint": "eslint . --ext .ts,.tsx --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TestCoders/webdriverio-typescript-boilerplate.git"
-  },
-  "keywords": [
-    "webdriverio",
-    "test-automation",
-    "boilerplate",
-    "typescript"
-  ],
-  "author": "Marcel Blijleven <marcelblijleven@gmail.com, marcel@testcoders.nl>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/TestCoders/webdriverio-typescript-boilerplate/issues"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "name": "webdriverio-typescript-boilerplate",
+    "version": "0.1.0",
+    "description": "WebdriverIO boilerplate with Typescript",
+    "scripts": {
+        "test": "node_modules/.bin/wdio wdio.conf.js",
+        "test:headless": "HEADLESS=1 npm run test",
+        "lint": "eslint . --ext .ts,.tsx --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TestCoders/webdriverio-typescript-boilerplate.git"
+    },
+    "keywords": [
+        "webdriverio",
+        "test-automation",
+        "boilerplate",
+        "typescript"
+    ],
+    "author": "Marcel Blijleven <marcelblijleven@gmail.com, marcel@testcoders.nl>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/TestCoders/webdriverio-typescript-boilerplate/issues"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "pretty-quick --staged"
+        }
+    },
+    "homepage": "https://github.com/TestCoders/webdriverio-typescript-boilerplate#readme",
+    "dependencies": {
+        "webdriverio": "^5.18.6"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@types/chai": "^4.2.8",
+        "@types/mocha": "^7.0.1",
+        "@types/node": "^13.5.3",
+        "@typescript-eslint/eslint-plugin": "^2.18.0",
+        "@typescript-eslint/parser": "^2.18.0",
+        "@wdio/cli": "^5.18.6",
+        "@wdio/local-runner": "^5.18.6",
+        "@wdio/mocha-framework": "^5.18.6",
+        "@wdio/selenium-standalone-service": "^5.16.10",
+        "@wdio/spec-reporter": "^5.18.6",
+        "@wdio/sync": "^5.18.6",
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-wdio": "^5.13.2",
+        "husky": "^4.2.1",
+        "prettier": "^1.19.1",
+        "pretty-quick": "^2.0.1",
+        "ts-node": "^8.6.2",
+        "tsconfig-paths": "^3.9.0",
+        "typescript": "^3.7.5"
     }
-  },
-  "homepage": "https://github.com/TestCoders/webdriverio-typescript-boilerplate#readme",
-  "dependencies": {
-    "webdriverio": "^5.18.6"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@types/chai": "^4.2.8",
-    "@types/mocha": "^7.0.1",
-    "@types/node": "^13.5.3",
-    "@typescript-eslint/eslint-plugin": "^2.18.0",
-    "@typescript-eslint/parser": "^2.18.0",
-    "@wdio/cli": "^5.18.6",
-    "@wdio/local-runner": "^5.18.6",
-    "@wdio/mocha-framework": "^5.18.6",
-    "@wdio/selenium-standalone-service": "^5.16.10",
-    "@wdio/spec-reporter": "^5.18.6",
-    "@wdio/sync": "^5.18.6",
-    "chai": "^4.2.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-wdio": "^5.13.2",
-    "husky": "^4.2.1",
-    "prettier": "^1.19.1",
-    "ts-node": "^8.6.2",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.7.5"
-  }
 }
